@@ -1,0 +1,11 @@
+{
+  "name": "game-of-thrones",
+  "version": "1.0.0",
+  "description": "an application that displays houses, persons and quotes of Game of Thrones series",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Mahdi Yousefi",
+  "license": "ISC"
+}
