@@ -575,32 +575,51 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"aenu9":[function(require,module,exports) {
-var _config = require("./config");
-const form = document.querySelector(".form");
-const showHouses = async function() {
-    try {
-        const res = await fetch(`${(0, _config.API_URL)}houses`);
-        const data = await res.json();
-        if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-        // console.log(houses);
-        let html = "";
-        data.forEach((house)=>html += `
-      <li class="list">${house.name}</li>`);
-        form.insertAdjacentHTML("afterend", html);
-    // for (let i = 0; i < data.length; i++) {
-    //   data[i].addEventListener("click", () => console.log(i));
-    // }
-    } catch (err) {
-        console.log(err);
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _housesView = require("./views/housesView");
+var _housesViewDefault = parcelHelpers.interopDefault(_housesView);
+var _personsView = require("./views/personsView");
+var _personsViewDefault = parcelHelpers.interopDefault(_personsView);
+var _quotesView = require("./views/quotesView");
+var _quotesViewDefault = parcelHelpers.interopDefault(_quotesView);
+const routes = {
+    "/": {
+        title: "Houses",
+        render: (0, _housesViewDefault.default)
+    },
+    "/persons": {
+        title: "Persons",
+        render: (0, _personsViewDefault.default)
+    },
+    "/quotes": {
+        title: "Quotes",
+        render: (0, _quotesViewDefault.default)
     }
 };
-showHouses(); // class housesView {}
+function router() {
+    let view = routes[location.pathname];
+    if (view) view.render();
+    else {
+        history.replaceState("", "", "/");
+        router();
+    }
+}
+// Handle navigation
+window.addEventListener("click", (e)=>{
+    if (e.target.matches("[data-link]")) {
+        e.preventDefault();
+        history.pushState("", "", e.target.href);
+        router();
+    }
+});
+// Update router
+window.addEventListener("popstate", router);
+window.addEventListener("DOMContentLoaded", router);
 
-},{"./config":"k5Hzs"}],"k5Hzs":[function(require,module,exports) {
+},{"./views/personsView":"2unF6","./views/quotesView":"ezzGl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/housesView":"YoWFM"}],"2unF6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "API_URL", ()=>API_URL);
-const API_URL = "https://api.gameofthronesquotes.xyz/v1/";
+exports.default = ()=>document.querySelector(".data").innerHTML = "Persons";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -632,6 +651,35 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["kYpTN","aenu9"], "aenu9", "parcelRequired369")
+},{}],"ezzGl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = ()=>document.querySelector(".data").innerHTML = "Quotes";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"YoWFM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _config = require("../config");
+exports.default = async ()=>{
+    try {
+        const res = await fetch(`${(0, _config.API_URL)}houses`);
+        const data = await res.json();
+        if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+        let html = "";
+        data.forEach((house)=>html += `
+        <li class="house__name"><a href="#">${house.name}</a></li>`);
+        document.querySelector(".data").innerHTML = html;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+},{"../config":"k5Hzs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5Hzs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "API_URL", ()=>API_URL);
+const API_URL = "https://api.gameofthronesquotes.xyz/v1/";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kYpTN","aenu9"], "aenu9", "parcelRequired369")
 
 //# sourceMappingURL=index.e37f48ea.js.map

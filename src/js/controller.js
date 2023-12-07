@@ -1,32 +1,33 @@
-import { API_URL } from "./config";
+import houses from "./views/housesView";
+import persons from "./views/personsView";
+import quotes from "./views/quotesView";
 
-const form = document.querySelector(".form");
-
-const showHouses = async function () {
-  try {
-    const res = await fetch(`${API_URL}houses`);
-    const data = await res.json();
-
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-    // console.log(houses);
-    let html = "";
-    data.forEach(
-      (house) =>
-        (html += `
-      <li class="list">${house.name}</li>`)
-    );
-
-    form.insertAdjacentHTML("afterend", html);
-
-    // for (let i = 0; i < data.length; i++) {
-    //   data[i].addEventListener("click", () => console.log(i));
-    // }
-
-  } catch (err) {
-    console.log(err);
-  }
+const routes = {
+  "/": { title: "Houses", render: houses },
+  "/persons": { title: "Persons", render: persons },
+  "/quotes": { title: "Quotes", render: quotes },
 };
 
-showHouses();
+function router() {
+  let view = routes[location.pathname];
 
-// class housesView {}
+  if (view) {
+    view.render();
+  } else {
+    history.replaceState("", "", "/");
+    router();
+  }
+}
+
+// Handle navigation
+window.addEventListener("click", (e) => {
+  if (e.target.matches("[data-link]")) {
+    e.preventDefault();
+    history.pushState("", "", e.target.href);
+    router();
+  }
+});
+
+// Update router
+window.addEventListener("popstate", router);
+window.addEventListener("DOMContentLoaded", router);

@@ -1,4 +1,4 @@
-6001
+6003
 74D:\My projects\game-of-thrones\node_modules\css-what\lib\commonjs\index.js133458212512175494 0
 81D:\My projects\game-of-thrones\node_modules\posthtml\node_modules\posthtml-parser133458212513323927 1
 53D:\My projects\game-of-thrones\node_modules\@swc\core133458212514923155 1
@@ -33,7 +33,7 @@
 121D:\My projects\game-of-thrones\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\removeUnknownsAndDefaults.js133458212516630482 0
 75D:\My projects\game-of-thrones\node_modules\svgo\plugins\removeEmptyText.js133458212516816174 0
 101D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\cjs\syntax\node\Identifier.cjs133458212516296314 0
-35D:\My projects\game-of-thrones\dist133461822426491279 1
+35D:\My projects\game-of-thrones\dist133464549849705942 1
 61D:\My projects\game-of-thrones\node_modules\@msgpackr-extract133458231904162397 1
 61D:\My projects\game-of-thrones\node_modules\commander\typings133458212513867477 1
 67D:\My projects\game-of-thrones\node_modules\source-map\package.json133458212511820858 0
@@ -58,7 +58,7 @@
 83D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\dist\data.js133458212517985678 0
 52D:\My projects\game-of-thrones\node_modules\chokidar133458231189273145 1
 70D:\My projects\game-of-thrones\node_modules\htmlnano\docs\netlify.toml133458212517390465 0
-41D:\My projects\game-of-thrones\index.html133461781955543335 0
+41D:\My projects\game-of-thrones\index.html133463633316768416 0
 53D:\My projects\game-of-thrones\src\sass\_preview.scss133458171743764871 0
 54D:\My projects\game-of-thrones\node_modules\json5\dist133458212514739041 1
 116D:\My projects\game-of-thrones\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node\Selector.js133458212517464511 0
@@ -134,7 +134,7 @@
 53D:\My projects\game-of-thrones\node_modules\@mischnic133458212500185875 1
 50D:\My projects\game-of-thrones\node_modules\@babel133458212500290162 1
 104D:\My projects\game-of-thrones\node_modules\dom-serializer\node_modules\entities\lib\decode_codepoint.js133458212512129819 0
-51D:\My projects\game-of-thrones\src\js\controller.js133461822235049342 0
+51D:\My projects\game-of-thrones\src\js\controller.js133463654453009371 0
 64D:\My projects\game-of-thrones\node_modules\resolve-from\license133458212512365819 0
 75D:\My projects\game-of-thrones\node_modules\caniuse-lite\data\regions\ML.js133458212519820504 0
 99D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\cjs\syntax\config\walker.cjs133458212517629518 0
@@ -151,7 +151,7 @@
 52D:\My projects\game-of-thrones\node_modules\css-tree133458212518628134 1
 83D:\My projects\game-of-thrones\node_modules\@swc\helpers\esm\_is_native_function.js133458212517830677 0
 54D:\My projects\game-of-thrones\node_modules\css-select133458212516816174 1
-57D:\My projects\game-of-thrones\src\js\views\housesView.js133458370675487200 0
+57D:\My projects\game-of-thrones\src\js\views\housesView.js133464549847731587 0
 60D:\My projects\game-of-thrones\node_modules\srcset\readme.md133458212512663905 0
 63D:\My projects\game-of-thrones\node_modules\@parcel\logger\test133458212512831486 1
 99D:\My projects\game-of-thrones\node_modules\css-select\node_modules\domutils\lib\esm\helpers.js.map133458212515467371 0
@@ -182,12 +182,12 @@
 86D:\My projects\game-of-thrones\node_modules\lmdb\node_modules\node-addon-api\nothing.c133458212511783579 0
 89D:\My projects\game-of-thrones\node_modules\@parcel\transformer-raw\src\RawTransformer.js133458212512526725 0
 81D:\My projects\game-of-thrones\node_modules\htmlnano\lib\modules\mergeScripts.mjs133458212517115489 0
-58D:\My projects\game-of-thrones\src\js\views\personsView.js133458370907743459 0
+58D:\My projects\game-of-thrones\src\js\views\personsView.js133462422455458647 0
 67D:\My projects\game-of-thrones\node_modules\to-regex-range\index.js133458212511968886 0
 97D:\My projects\game-of-thrones\node_modules\@parcel\core\test\fixtures\config-malformed\.parcelrc133458212512748749 0
 78D:\My projects\game-of-thrones\node_modules\msgpackr\dist\index-no-eval.min.js133458212514116738 0
 91D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\cjs\lexer\search.cjs133458212517297235 0
-57D:\My projects\game-of-thrones\src\js\views\quotesView.js133458371070394240 0
+57D:\My projects\game-of-thrones\src\js\views\quotesView.js133462422641167238 0
 75D:\My projects\game-of-thrones\node_modules\caniuse-lite\data\regions\CD.js133458212517229834 0
 71D:\My projects\game-of-thrones\node_modules\@parcel\reporter-dev-server133458212515333120 1
 57D:\My projects\game-of-thrones\node_modules\nth-check\lib133458212515467371 1
@@ -207,7 +207,7 @@
 55D:\My projects\game-of-thrones\node_modules\ansi-styles133458212512967757 1
 64D:\My projects\game-of-thrones\node_modules\msgpackr\index.d.cts133458212513701360 0
 65D:\My projects\game-of-thrones\node_modules\argparse\CHANGELOG.md133458212513701360 0
-58D:\My projects\game-of-thrones\dist\index.f7626f62.css.map133461822426491279 0
+58D:\My projects\game-of-thrones\dist\index.f7626f62.css.map133464549849546181 0
 81D:\My projects\game-of-thrones\node_modules\@swc\helpers\cjs\_super_prop_base.cjs133458212516898367 0
 100D:\My projects\game-of-thrones\node_modules\dom-serializer\node_modules\entities\lib\encode.d.ts.map133458212514350112 0
 105D:\My projects\game-of-thrones\node_modules\caniuse-lite\data\features\client-hints-dpr-width-viewport.js133458212517390465 0
@@ -836,7 +836,7 @@
 72D:\My projects\game-of-thrones\node_modules\type-fest\source\except.d.ts133458212514511771 0
 75D:\My projects\game-of-thrones\node_modules\caniuse-lite\data\regions\SZ.js133458212520446577 0
 105D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\cjs\tokenizer\OffsetToLocation.cjs133458212516979573 0
-67D:\My projects\game-of-thrones\dist\game-of-thrones.3464ddca.js.map133458231204515974 0
+67D:\My projects\game-of-thrones\dist\game-of-thrones.3464ddca.js.map133463620018803693 0
 82D:\My projects\game-of-thrones\node_modules\cosmiconfig\dist\ExplorerBase.d.ts.map133458212514203553 0
 82D:\My projects\game-of-thrones\node_modules\type-fest\source\iterable-element.d.ts133458212514923155 0
 81D:\My projects\game-of-thrones\node_modules\type-fest\source\merge-exclusive.d.ts133458212515202610 0
@@ -1704,7 +1704,7 @@
 63D:\My projects\game-of-thrones\node_modules\parse-json\index.js133458212511968886 0
 119D:\My projects\game-of-thrones\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node\Parentheses.js133458212517297235 0
 62D:\My projects\game-of-thrones\node_modules\parse-json\license133458212511827833 0
-57D:\My projects\game-of-thrones\dist\index.e37f48ea.js.map133461822206856772 0
+57D:\My projects\game-of-thrones\dist\index.e37f48ea.js.map133464549849546181 0
 108D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\cjs\syntax\config\parser-selector.cjs133458212517144782 0
 69D:\My projects\game-of-thrones\node_modules\domutils\lib\helpers.d.ts133458212515082419 0
 126D:\My projects\game-of-thrones\node_modules\@parcel\optimizer-htmlnano\node_modules\css-select\lib\pseudo-selectors\filters.js133458212513323927 0
@@ -2330,6 +2330,7 @@
 118D:\My projects\game-of-thrones\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node\Combinator.js133458212514923155 0
 83D:\My projects\game-of-thrones\node_modules\json-parse-even-better-errors\README.md133458212512967757 0
 79D:\My projects\game-of-thrones\node_modules\caniuse-lite\data\features\woff2.js133458212520709999 0
+58D:\My projects\game-of-thrones\dist\housesView.b09dc99d.js133462581406881960 0
 81D:\My projects\game-of-thrones\node_modules\csso\lib\restructure\1-mergeAtrule.js133458212516202004 0
 56D:\My projects\game-of-thrones\node_modules\js-yaml\dist133458212515838916 1
 98D:\My projects\game-of-thrones\node_modules\csso\node_modules\css-tree\cjs\syntax\atrule\index.cjs133458212516630482 0
@@ -3739,7 +3740,7 @@
 78D:\My projects\game-of-thrones\node_modules\cosmiconfig\dist\Explorer.d.ts.map133458212513967428 0
 76D:\My projects\game-of-thrones\node_modules\cosmiconfig\dist\Explorer.js.map133458212514081325 0
 97D:\My projects\game-of-thrones\node_modules\@swc\helpers\_\_class_private_method_set\package.json133458212518467494 0
-63D:\My projects\game-of-thrones\dist\game-of-thrones.3464ddca.js133458231204501082 0
+63D:\My projects\game-of-thrones\dist\game-of-thrones.3464ddca.js133463620018793681 0
 73D:\My projects\game-of-thrones\node_modules\@parcel\watcher\index.js.flow133458212511968886 0
 78D:\My projects\game-of-thrones\node_modules\cosmiconfig\dist\ExplorerBase.d.ts133458212515370579 0
 57D:\My projects\game-of-thrones\node_modules\@parcel\utils133458212516979573 1
@@ -5004,7 +5005,7 @@
 106D:\My projects\game-of-thrones\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-web\package.json133458212515202610 0
 118D:\My projects\game-of-thrones\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-web\parcel_sourcemap_wasm.js133458212514350112 0
 123D:\My projects\game-of-thrones\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-web\parcel_sourcemap_wasm_bg.wasm133458212517297235 0
-53D:\My projects\game-of-thrones\dist\index.e37f48ea.js133461822206750934 0
+53D:\My projects\game-of-thrones\dist\index.e37f48ea.js133464549849546181 0
 76D:\My projects\game-of-thrones\node_modules\@parcel\core\test\Parcel.test.js133458212517464511 0
 124D:\My projects\game-of-thrones\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-node\parcel_sourcemap_wasm_bg.wasm133458212517297235 0
 93D:\My projects\game-of-thrones\node_modules\@parcel\source-map\parcel_sourcemap_node\build.js133458212513776012 0
@@ -5105,7 +5106,7 @@
 91D:\My projects\game-of-thrones\node_modules\@parcel\resolver-default\src\DefaultResolver.js133458212512585439 0
 80D:\My projects\game-of-thrones\node_modules\@parcel\reporter-tracer\package.json133458212512831486 0
 71D:\My projects\game-of-thrones\node_modules\@parcel\reporter-tracer\src133458212512516003 1
-74D:\My projects\game-of-thrones\dist\icons8-game-of-thrones-32.f694f6cc.png133461821554620576 0
+74D:\My projects\game-of-thrones\dist\icons8-game-of-thrones-32.f694f6cc.png133464549849405563 0
 89D:\My projects\game-of-thrones\node_modules\@parcel\reporter-tracer\src\TracerReporter.js133458212512590493 0
 89D:\My projects\game-of-thrones\node_modules\@parcel\reporter-tracer\lib\TracerReporter.js133458212512129819 0
 88D:\My projects\game-of-thrones\node_modules\@parcel\reporter-dev-server\src\HMRServer.js133458212513213718 0
@@ -5997,6 +5998,7 @@
 59D:\My projects\game-of-thrones\node_modules\.bin\semver.cmd133458212521997348 0
 57D:\My projects\game-of-thrones\node_modules\.bin\svgo.ps1133458212521997348 0
 75D:\My projects\game-of-thrones\node_modules\.bin\update-browserslist-db.ps1133458212521997348 0
-54D:\My projects\game-of-thrones\dist\index.f7626f62.css133461822426453967 0
-46D:\My projects\game-of-thrones\dist\index.html133461821555030590 0
+62D:\My projects\game-of-thrones\dist\housesView.b09dc99d.js.map133462581406881960 0
+54D:\My projects\game-of-thrones\dist\index.f7626f62.css133464549849405563 0
+46D:\My projects\game-of-thrones\dist\index.html133464549849705942 0
 50D:\My projects\game-of-thrones\assets\css\main.css133461822519276418 0
