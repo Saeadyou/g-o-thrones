@@ -1,19 +1,20 @@
+import View from "./View";
+import previewView from "./previewView";
+
 import { API_URL } from "../config";
+import { AJAX } from "../helpers";
 
-  export default async () =>{
-  try {
-    const res = await fetch(`${API_URL}houses`);
-    const data = await res.json();
+class HousesView extends View {
+  _parentElement = document.querySelector(".data");
+  _errorMessage = "There is no house!";
 
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-    let html = "";
-    data.forEach(
-      (house) =>
-        (html += `
-        <li class="house__name"><a href="#">${house.name}</a></li>`)
-    );
-    document.querySelector(".data").innerHTML= html;
-  } catch (err) {
-    console.error(err);
+  addHandlerRender(handler) {
+    window.addEventListener("popstate", handler);
+  }
+
+  _generateMarkup() {
+    return this._data.map((house) => previewView.render(house, false)).join("");
   }
 }
+
+export default new HousesView();

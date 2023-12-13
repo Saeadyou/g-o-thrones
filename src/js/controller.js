@@ -1,33 +1,80 @@
-import houses from "./views/housesView";
-import persons from "./views/personsView";
-import quotes from "./views/quotesView";
+import * as model from "./model";
+import housesView from "./views/housesView";
+import personsView from "./views/personsView";
+import quotesView from "./views/quotesView";
+import searchView from "./views/searchView";
 
-const routes = {
-  "/": { title: "Houses", render: houses },
-  "/persons": { title: "Persons", render: persons },
-  "/quotes": { title: "Quotes", render: quotes },
+const controlHouses = async function () {
+  try {
+    // Loading houses
+    await model.loadHouses();
+
+    // Rendering houses
+    housesView.render(model.state.houses);
+  } catch (err) {
+    housesView.renderError();
+  }
 };
 
-function router() {
-  let view = routes[location.pathname];
+const controlPersons = async function () {
+  try {
+    // Loading houses
+    await model.loadPersons();
 
-  if (view) {
-    view.render();
-  } else {
-    history.replaceState("", "", "/");
-    router();
+    // Rendering houses
+    personsView.render(model.state.persons);
+  } catch (err) {
+    personsView.renderError();
+  }
+};
+
+const controlQuotes = async function () {
+  try {
+    // Loading houses
+    await model.loadQuotes();
+
+    // Rendering houses
+    quotesView.render(model.state.quotes);
+  } catch (err) {
+    quotesView.renderError();
+  }
+};
+
+class Router {
+  _routes = {
+    "/": { render: controlHouses },
+    "/persons": { render: controlPersons },
+    "/quotes": { render: controlQuotes },
+    // "/members": { title: "Members", render: members },
+  };
+
+  router_init() {
+    let view = this._routes[location.pathname];
+
+    if (view) {
+      view.render();
+    } else {
+      history.replaceState("", "", "/");
+      this.router_init();
+    }
+  }
+
+  navigate() {
+    // Handle navigation
+    window.addEventListener("click", (e) => {
+      if (e.target.matches("[data-link]")) {
+        e.preventDefault();
+        history.pushState("", "", e.target.href);
+        this.router_init();
+      }
+    });
   }
 }
 
-// Handle navigation
-window.addEventListener("click", (e) => {
-  if (e.target.matches("[data-link]")) {
-    e.preventDefault();
-    history.pushState("", "", e.target.href);
-    router();
-  }
-});
+const routing = new Router();
 
-// Update router
-window.addEventListener("popstate", router);
-window.addEventListener("DOMContentLoaded", router);
+routing.navigate();
+
+// // Update router
+// window.addEventListener("popstate", router);
+// window.addEventListener("DOMContentLoaded", router);

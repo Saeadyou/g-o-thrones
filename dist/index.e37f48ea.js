@@ -576,52 +576,104 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"aenu9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _model = require("./model");
 var _housesView = require("./views/housesView");
 var _housesViewDefault = parcelHelpers.interopDefault(_housesView);
 var _personsView = require("./views/personsView");
 var _personsViewDefault = parcelHelpers.interopDefault(_personsView);
 var _quotesView = require("./views/quotesView");
 var _quotesViewDefault = parcelHelpers.interopDefault(_quotesView);
-const routes = {
-    "/": {
-        title: "Houses",
-        render: (0, _housesViewDefault.default)
-    },
-    "/persons": {
-        title: "Persons",
-        render: (0, _personsViewDefault.default)
-    },
-    "/quotes": {
-        title: "Quotes",
-        render: (0, _quotesViewDefault.default)
+var _searchView = require("./views/searchView");
+var _searchViewDefault = parcelHelpers.interopDefault(_searchView);
+const controlHouses = async function() {
+    try {
+        // Loading houses
+        await _model.loadHouses();
+        // Rendering houses
+        (0, _housesViewDefault.default).render(_model.state.houses);
+    } catch (err) {
+        (0, _housesViewDefault.default).renderError();
     }
 };
-function router() {
-    let view = routes[location.pathname];
-    if (view) view.render();
-    else {
-        history.replaceState("", "", "/");
-        router();
+const controlPersons = async function() {
+    try {
+        // Loading houses
+        await _model.loadPersons();
+        // Rendering houses
+        (0, _personsViewDefault.default).render(_model.state.persons);
+    } catch (err) {
+        (0, _personsViewDefault.default).renderError();
+    }
+};
+const controlQuotes = async function() {
+    try {
+        // Loading houses
+        await _model.loadQuotes();
+        // Rendering houses
+        (0, _quotesViewDefault.default).render(_model.state.quotes);
+    } catch (err) {
+        (0, _quotesViewDefault.default).renderError();
+    }
+};
+class Router {
+    _routes = {
+        "/": {
+            render: controlHouses
+        },
+        "/persons": {
+            render: controlPersons
+        },
+        "/quotes": {
+            render: controlQuotes
+        }
+    };
+    router_init() {
+        let view = this._routes[location.pathname];
+        if (view) view.render();
+        else {
+            history.replaceState("", "", "/");
+            this.router_init();
+        }
+    }
+    navigate() {
+        // Handle navigation
+        window.addEventListener("click", (e)=>{
+            if (e.target.matches("[data-link]")) {
+                e.preventDefault();
+                history.pushState("", "", e.target.href);
+                this.router_init();
+            }
+        });
     }
 }
-// Handle navigation
-window.addEventListener("click", (e)=>{
-    if (e.target.matches("[data-link]")) {
-        e.preventDefault();
-        history.pushState("", "", e.target.href);
-        router();
-    }
-});
-// Update router
-window.addEventListener("popstate", router);
-window.addEventListener("DOMContentLoaded", router);
+const routing = new Router();
+routing.navigate(); // // Update router
+ // window.addEventListener("popstate", router);
+ // window.addEventListener("DOMContentLoaded", router);
 
-},{"./views/personsView":"2unF6","./views/quotesView":"ezzGl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/housesView":"YoWFM"}],"2unF6":[function(require,module,exports) {
+},{"./views/personsView":"2unF6","./views/quotesView":"ezzGl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/housesView":"YoWFM","./model":"Y4A21","./views/searchView":"9OQAM"}],"2unF6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-exports.default = ()=>document.querySelector(".data").innerHTML = "Persons";
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _config = require("../config");
+var _helpers = require("../helpers");
+class PersonsView extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".data");
+    _errorMessage = "There is no person!";
+    addHandlerRender(handler) {
+        [
+            "popstate",
+            "DOMContentLoaded"
+        ].forEach((event)=>window.addEventListener(event, handler));
+    }
+    _generateMarkup() {
+        return "Personsssssssssssssssss";
+    }
+}
+exports.default = new PersonsView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"5cUXS","../config":"k5Hzs","../helpers":"hGI1E"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -651,34 +703,191 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"ezzGl":[function(require,module,exports) {
+},{}],"5cUXS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-exports.default = ()=>document.querySelector(".data").innerHTML = "Quotes";
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"YoWFM":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _config = require("../config");
-exports.default = async ()=>{
-    try {
-        const res = await fetch(`${(0, _config.API_URL)}houses`);
-        const data = await res.json();
-        if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-        let html = "";
-        data.forEach((house)=>html += `
-        <li class="house__name"><a href="#">${house.name}</a></li>`);
-        document.querySelector(".data").innerHTML = html;
-    } catch (err) {
-        console.error(err);
+class View {
+    _data;
+    render(data, render = true) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError;
+        this._data = data;
+        const markup = this._generateMarkup();
+        if (!render) return markup;
+        this._clear();
+        this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
-};
+    _clear() {
+        this._parentElement.innerHTML = "";
+    }
+    renderError(message = this._errorMessage) {
+        const markup = `
+        <div class='error'>
+            <p>${message}</p>
+        </div>
+    `;
+    }
+}
+exports.default = View;
 
-},{"../config":"k5Hzs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5Hzs":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5Hzs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "API_URL", ()=>API_URL);
+parcelHelpers.export(exports, "TIMEOUT_SEC", ()=>TIMEOUT_SEC);
 const API_URL = "https://api.gameofthronesquotes.xyz/v1/";
+const TIMEOUT_SEC = 10;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AJAX", ()=>AJAX);
+var _config = require("./config");
+const timeout = function(s) {
+    return new Promise(function(_, reject) {
+        setTimeout(()=>{
+            reject(new Error(`Request took too long! Timeout after ${s} seconds`));
+        }, s * 1000);
+    });
+};
+const AJAX = async function(url) {
+    try {
+        const fetchPro = fetch(url);
+        const res = await Promise.race([
+            fetchPro,
+            timeout((0, _config.TIMEOUT_SEC))
+        ]);
+        const data = await res.json();
+        if (!res.ok) throw new Error(`${data.message} **${res.status}**`);
+        return data;
+    } catch (err) {
+        throw err;
+    }
+};
+
+},{"./config":"k5Hzs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ezzGl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _config = require("../config");
+var _helpers = require("../helpers");
+class QuotesView extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".data");
+    _errorMessage = "There is no quote!";
+    addHandlerRender(handler) {
+        [
+            "popstate",
+            "DOMContentLoaded"
+        ].forEach((event)=>window.addEventListener(event, handler));
+    }
+    _generateMarkup() {
+        return "Quotesssssssssssssssss";
+    }
+}
+exports.default = new QuotesView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"5cUXS","../config":"k5Hzs","../helpers":"hGI1E"}],"YoWFM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _previewView = require("./previewView");
+var _previewViewDefault = parcelHelpers.interopDefault(_previewView);
+var _config = require("../config");
+var _helpers = require("../helpers");
+class HousesView extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".data");
+    _errorMessage = "There is no house!";
+    addHandlerRender(handler) {
+        window.addEventListener("popstate", handler);
+    }
+    _generateMarkup() {
+        return this._data.map((house)=>(0, _previewViewDefault.default).render(house, false)).join("");
+    }
+}
+exports.default = new HousesView();
+
+},{"../config":"k5Hzs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"5cUXS","./previewView":"1FDQ6","../helpers":"hGI1E"}],"1FDQ6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+class PreviewView extends (0, _viewDefault.default) {
+    _parentElement = "";
+    _generateMarkup() {
+        return `
+        <li class="house__name">
+            <a href="#">${this._data.name}</a>
+        </li>
+    `;
+    }
+}
+exports.default = new PreviewView();
+
+},{"./View":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+parcelHelpers.export(exports, "loadHouses", ()=>loadHouses);
+parcelHelpers.export(exports, "loadPersons", ()=>loadPersons);
+parcelHelpers.export(exports, "loadQuotes", ()=>loadQuotes);
+var _config = require("./config");
+var _helpers = require("./helpers");
+const state = {
+    houses: [],
+    persons: [],
+    quotes: [],
+    search: {
+        query: "",
+        result: []
+    }
+};
+const loadHouses = async function() {
+    try {
+        const data = await (0, _helpers.AJAX)(`${(0, _config.API_URL)}houses`);
+        state.houses = data;
+    } catch (err) {
+        throw err;
+    }
+};
+const loadPersons = async function() {
+    try {
+        const data = await (0, _helpers.AJAX)(`${(0, _config.API_URL)}characters`);
+        state.persons = data;
+    } catch (err) {
+        throw err;
+    }
+};
+const loadQuotes = async function() {
+    try {
+        const data = await (0, _helpers.AJAX)(`${(0, _config.API_URL)}random/5`);
+        state.quotes = data;
+    } catch (err) {
+        throw err;
+    }
+};
+
+},{"./config":"k5Hzs","./helpers":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9OQAM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class SearchView {
+    _parentElement = document.querySelector(".search");
+    getQuery() {
+        const query = this._parentElement.querySelector(".search__field").value;
+        this._clearInput();
+        return query;
+    }
+    _clearInput() {
+        this._parentElement.querySelector(".search__field").value = "";
+    }
+    addHandlerSearch(handler) {
+        this._parentElement.addEventListener("submit", function(e) {
+            e.preventDefault();
+            handler();
+        });
+    }
+}
+exports.default = new SearchView();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kYpTN","aenu9"], "aenu9", "parcelRequired369")
 
