@@ -18,10 +18,10 @@ const controlHouses = async function () {
 
 const controlPersons = async function () {
   try {
-    // Loading houses
+    // Loading persons
     await model.loadPersons();
 
-    // Rendering houses
+    // Rendering persons
     personsView.render(model.state.persons);
   } catch (err) {
     personsView.renderError();
@@ -30,11 +30,29 @@ const controlPersons = async function () {
 
 const controlQuotes = async function () {
   try {
-    // Loading houses
+    // Loading quotes
     await model.loadQuotes();
 
-    // Rendering houses
+    // Rendering quotes
     quotesView.render(model.state.quotes);
+  } catch (err) {
+    quotesView.renderError();
+  }
+};
+
+const controlSearchResults = function () {
+  try {
+    // Get search query
+    const query = searchView.getQuery().toUpperCase();
+    if (!query) return;
+
+    // Load search result
+    const houses = model.state.houses.filter(
+      (house) => house.name.toUpperCase().indexOf(query) > -1
+    );
+
+    // Render results
+    housesView.render(houses);
   } catch (err) {
     quotesView.renderError();
   }
@@ -43,6 +61,9 @@ const controlQuotes = async function () {
 class Router {
   _routes = {
     "/": { render: controlHouses },
+    // "/": {
+    //   render: searchView.getQuery() ? controlSearchResults : controlHouses,
+    // },
     "/persons": { render: controlPersons },
     "/quotes": { render: controlQuotes },
     // "/members": { title: "Members", render: members },
@@ -74,6 +95,11 @@ class Router {
 const routing = new Router();
 
 routing.navigate();
+
+document.querySelector(".search").addEventListener("submit", (e) => {
+  e.preventDefault();
+  controlSearchResults();
+});
 
 // // Update router
 // window.addEventListener("popstate", router);

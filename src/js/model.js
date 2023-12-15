@@ -5,17 +5,11 @@ export const state = {
   houses: [],
   persons: [],
   quotes: [],
-  search: {
-    query: "",
-    result: [],
-  },
+  // search: {
+  //   query: "",
+  //   result: [],
+  // },
 };
-
-// const createHousesArray=function(data){
-// return {
-
-// }
-// }
 
 export const loadHouses = async function () {
   try {

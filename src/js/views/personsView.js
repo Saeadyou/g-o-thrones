@@ -7,14 +7,12 @@ class PersonsView extends View {
   _parentElement = document.querySelector(".data");
   _errorMessage = "There is no person!";
 
-  addHandlerRender(handler) {
-    ["popstate", "DOMContentLoaded"].forEach((event) =>
-      window.addEventListener(event, handler)
-    );
-  }
+  // addHandlerRender(handler) {
+  //   window.addEventListener("popstate", handler);
+  // }
 
   _generateMarkup() {
-    return 'Personsssssssssssssssss';
+    return "Personsssssssssssssssss";
   }
 }
 
