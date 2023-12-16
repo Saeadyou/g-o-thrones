@@ -44,7 +44,7 @@ const controlSearchResults = function () {
   try {
     // Get search query
     const query = searchView.getQuery().toUpperCase();
-    if (!query) return;
+    if (!query) housesView.render(model.state.houses);
 
     // Load search result
     const houses = model.state.houses.filter(
