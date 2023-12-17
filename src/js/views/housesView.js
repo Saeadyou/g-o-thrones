@@ -1,8 +1,8 @@
 import View from "./View";
 import previewView from "./previewView";
 
-import { API_URL } from "../config";
-import { AJAX } from "../helpers";
+// import { API_URL } from "../config";
+// import { AJAX } from "../helpers";
 
 class HousesView extends View {
   _parentElement = document.querySelector(".data");

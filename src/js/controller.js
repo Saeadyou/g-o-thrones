@@ -1,5 +1,6 @@
 import * as model from "./model";
 import housesView from "./views/housesView";
+import membersView from "./views/membersView";
 import personsView from "./views/personsView";
 import quotesView from "./views/quotesView";
 import searchView from "./views/searchView";
@@ -13,6 +14,17 @@ const controlHouses = async function () {
     housesView.render(model.state.houses);
   } catch (err) {
     housesView.renderError();
+  }
+};
+
+const controlMembers = function () {
+  try {
+    const selectedHouse = model.state.houses.find(
+      (house) => house.slug === location.pathname.replace("/houses/", "")
+    );
+    membersView.renderMembers(selectedHouse);
+  } catch (err) {
+    membersView.renderError();
   }
 };
 
@@ -61,9 +73,7 @@ const controlSearchResults = function () {
 class Router {
   _routes = {
     "/": { render: controlHouses },
-    // "/": {
-    //   render: searchView.getQuery() ? controlSearchResults : controlHouses,
-    // },
+    "*": { render: controlMembers },
     "/persons": { render: controlPersons },
     "/quotes": { render: controlQuotes },
     // "/members": { title: "Members", render: members },
@@ -74,6 +84,8 @@ class Router {
 
     if (view) {
       view.render();
+    } else if (location.pathname.includes("/houses/")) {
+      controlMembers();
     } else {
       history.replaceState("", "", "/");
       this.router_init();

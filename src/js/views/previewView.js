@@ -6,7 +6,7 @@ class PreviewView extends View {
   _generateMarkup() {
     return `
         <li class="house__name">
-            <a href="#">${this._data.name}</a>
+            <a href="/houses/${this._data.slug}" data-link>${this._data.name}</a>
         </li>
     `;
   }

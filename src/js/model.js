@@ -5,10 +5,6 @@ export const state = {
   houses: [],
   persons: [],
   quotes: [],
-  // search: {
-  //   query: "",
-  //   result: [],
-  // },
 };
 
 export const loadHouses = async function () {
