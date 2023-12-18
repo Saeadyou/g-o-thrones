@@ -1,6 +1,7 @@
 import * as model from "./model";
 import housesView from "./views/housesView";
 import membersView from "./views/membersView";
+import personView from "./views/personView";
 import personsView from "./views/personsView";
 import quotesView from "./views/quotesView";
 import searchView from "./views/searchView";
@@ -37,6 +38,17 @@ const controlPersons = async function () {
     personsView.render(model.state.persons);
   } catch (err) {
     personsView.renderError();
+  }
+};
+
+const controlPersonDetails = function () {
+  try {
+    const selectedPerson = model.state.persons.find(
+      (person) => person.slug === location.pathname.replace("/persons/", "")
+    );
+    personView.renderPerson(selectedPerson);
+  } catch (err) {
+    personView.renderError();
   }
 };
 
@@ -97,6 +109,8 @@ class Router {
       view.render();
     } else if (location.pathname.includes("/houses/")) {
       controlMembers();
+    } else if (location.pathname.includes("/persons/")) {
+      controlPersonDetails();
     } else {
       history.replaceState("", "", "/");
       this.router_init();
