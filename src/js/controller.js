@@ -73,10 +73,9 @@ const controlSearchResults = function () {
 class Router {
   _routes = {
     "/": { render: controlHouses },
-    "*": { render: controlMembers },
+    // "*": { render: controlMembers },
     "/persons": { render: controlPersons },
     "/quotes": { render: controlQuotes },
-    // "/members": { title: "Members", render: members },
   };
 
   router_init() {
@@ -101,13 +100,17 @@ class Router {
         this.router_init();
       }
     });
+    // Show houses at first
+    this.router_init();
+
+    // Fire router_init() once the back button is clicked
+    window.onpopstate = () => setTimeout(this.router_init(), 0);
   }
 }
 
 const routing = new Router();
 
 routing.navigate();
-
 document.querySelector(".search").addEventListener("submit", (e) => {
   e.preventDefault();
   controlSearchResults();
