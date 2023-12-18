@@ -56,24 +56,36 @@ const controlSearchResults = function () {
   try {
     // Get search query
     const query = searchView.getQuery().toUpperCase();
-    if (!query) housesView.render(model.state.houses);
 
-    // Load search result
-    const houses = model.state.houses.filter(
-      (house) => house.name.toUpperCase().indexOf(query) > -1
-    );
+    if (location.pathname === "/") {
+      if (!query) housesView.render(model.state.houses);
 
-    // Render results
-    housesView.render(houses);
+      // Load search result
+      const houses = model.state.houses.filter(
+        (house) => house.name.toUpperCase().indexOf(query) > -1
+      );
+
+      // Render results
+      housesView.render(houses);
+    } else if (location.pathname === "/persons") {
+      if (!query) personsView.render(model.state.persons);
+
+      // Load search result
+      const persons = model.state.persons.filter(
+        (person) => person.name.toUpperCase().indexOf(query) > -1
+      );
+
+      // Render results
+      personsView.render(persons);
+    }
   } catch (err) {
-    quotesView.renderError();
+    housesView.renderError();
   }
 };
 
 class Router {
   _routes = {
     "/": { render: controlHouses },
-    // "*": { render: controlMembers },
     "/persons": { render: controlPersons },
     "/quotes": { render: controlQuotes },
   };
