@@ -2,6 +2,7 @@ import View from "./View";
 
 import { API_URL } from "../config";
 import { AJAX } from "../helpers";
+import previewView from "./previewView";
 
 class PersonsView extends View {
   _parentElement = document.querySelector(".data");
@@ -12,7 +13,9 @@ class PersonsView extends View {
   // }
 
   _generateMarkup() {
-    return "Personsssssssssssssssss";
+    return this._data
+      .map((person) => previewView.render(person, false))
+      .join("");
   }
 }
 
