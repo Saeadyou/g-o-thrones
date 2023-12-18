@@ -43,10 +43,11 @@ const controlPersons = async function () {
 
 const controlPersonDetails = function () {
   try {
-    const selectedPerson = model.state.persons.find(
+    const persons = model.state.persons;
+    const selectedPerson = persons.find(
       (person) => person.slug === location.pathname.replace("/persons/", "")
     );
-    personView.renderPerson(selectedPerson);
+    personView.renderPerson(selectedPerson, persons);
   } catch (err) {
     personView.renderError();
   }
