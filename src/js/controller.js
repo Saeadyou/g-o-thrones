@@ -60,6 +60,7 @@ const controlQuotes = async function () {
 
     // Rendering quotes
     quotesView.render(model.state.quotes);
+    quotesView.addHandlerRender(controlQuotes)
   } catch (err) {
     quotesView.renderError();
   }
