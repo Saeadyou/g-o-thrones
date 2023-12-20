@@ -1,0 +1,17 @@
+#app {
+  .search {
+    display: flex;
+    justify-content: center;
+    &__field {
+      border-radius: 9px;
+      padding: 1rem;
+      width: 75%;
+      transition: width 0.6s;
+      &:focus {
+        width: 90%;
+
+        transition: all 0.6s;
+      }
+    }
+  }
+}

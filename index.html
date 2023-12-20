@@ -24,20 +24,24 @@
     <title>Game of Thrones</title>
   </head>
   <body>
-    <nav class="nav">
-      <a href="/" class="nav__link" data-link>Houses</a>
-      <a href="/persons" class="nav__link" data-link>Persons</a>
-      <a href="/quotes" class="nav__link" data-link>Quotes</a>
-    </nav>
-    <main id="app">
-      <form class="search">
-        <input
-          type="text"
-          class="search__field"
-          placeholder="Search for names..."
-        />
-      </form>
-      <ul class="data"></ul>
-    </main>
+    <div class="container">
+      <header class="header">
+        <nav class="nav">
+          <a href="/" class="nav__link active" data-route-link>Houses</a>
+          <a href="/persons" class="nav__link" data-route-link>Persons</a>
+          <a href="/quotes" class="nav__link" data-route-link>Quotes</a>
+        </nav>
+      </header>
+      <main id="app">
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Search for names..."
+          />
+        </form>
+        <ul class="data"></ul>
+      </main>
+    </div>
   </body>
 </html>

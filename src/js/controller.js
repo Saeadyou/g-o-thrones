@@ -60,7 +60,7 @@ const controlQuotes = async function () {
 
     // Rendering quotes
     quotesView.render(model.state.quotes);
-    quotesView.addHandlerRender(controlQuotes)
+    quotesView.addHandlerRender(controlQuotes);
   } catch (err) {
     quotesView.renderError();
   }
@@ -119,13 +119,25 @@ class Router {
     }
   }
 
+  setActiveClass(el) {
+    if (el.matches("[data-route-link]")) {
+      const oldActive = document.querySelector(".active");
+      oldActive.classList.remove("active");
+      el.classList.add("active");
+    }
+  }
+
   navigate() {
     // Handle navigation
     window.addEventListener("click", (e) => {
-      if (e.target.matches("[data-link]")) {
+      if (
+        e.target.matches("[data-link]") ||
+        e.target.matches("[data-route-link]")
+      ) {
         e.preventDefault();
         history.pushState("", "", e.target.href);
         this.router_init();
+        this.setActiveClass(e.target);
       }
     });
     // Show houses at first
@@ -143,7 +155,3 @@ document.querySelector(".search").addEventListener("submit", (e) => {
   e.preventDefault();
   controlSearchResults();
 });
-
-// // Update router
-// window.addEventListener("popstate", router);
-// window.addEventListener("DOMContentLoaded", router);

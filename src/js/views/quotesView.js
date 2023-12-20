@@ -12,12 +12,12 @@ class QuotesView extends View {
     const updateButton = document.getElementById("updateButton");
     updateButton.addEventListener("click", handler);
   }
- 
+
   _generateMarkup() {
     return `${this._data
       .map((quote) => previewView.render(quote, false))
       .join("")}
-      <button id='updateButton'>Change quotations</button>`;
+      <button id='updateButton'>Update quotations</button>`;
   }
 }
 
