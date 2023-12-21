@@ -6,11 +6,12 @@ $color-light-1: #fff;
 $color-light-2: #bdddff;
 
 $color-violet: #7b27ca;
+$color-violet-light: #b96eff;
 
 $gradient: linear-gradient(to right bottom, $color-bg, $color-bg-light);
 
 $bp-large: 78.15em; // 1250px
-$bp-medium: 61.25em; // 980px
+// $bp-medium: 61.25em; // 980px
 $bp-small: 37.5em; // 600px
 $bp-smallest: 31.25em; // 500px
 
@@ -32,9 +33,9 @@ html {
   // font-size: 62.5%;
   font-size: 100%;
 
-  // @media only screen and (max-width: $bp-medium) {
-  //   font-size: 50%;
-  // }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 80%;
+  }
 }
 
 body {
@@ -67,5 +68,41 @@ a:visited {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+}
+
+.heading-4 {
+  color: $color-violet-light;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.heading-5 {
+  font-size: inherit;
+}
+
+.btn {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  background-color: $color-bg;
+  color: $color-light-1;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 2rem;
+  width: fit-content;
+  align-self: center;
+
+  &:hover {
+    background-color: $color-light-1;
+    color: $color-bg-dark;
+    box-shadow: 0.2rem 0.3rem 1rem rgba($color-light-1, 0.2);
+  }
+
+  &:focus {
+    box-shadow: 0.1rem 0.2rem 1rem rgba($color-light-1, 0.2);
   }
 }

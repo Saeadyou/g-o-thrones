@@ -8,9 +8,12 @@ class PreviewView extends View {
       // Persons route
       return `
       <li class="item">
-      <a href="/persons/${this._data.slug}" data-link>${
-        this._data.name
-      } -----> ${this._data.house?.name || "❌whithout house❌"}</a>
+        <span class="item__name">
+          <a href="/persons/${this._data.slug}" data-link>${this._data.name}</a>
+        </span>
+        <span class='item__house'>
+          ${this._data.house?.name || "❌whithout house❌"}
+        </span>
       </li>
       `;
 

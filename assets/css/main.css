@@ -15,6 +15,11 @@ html {
   box-sizing: border-box;
   font-size: 100%;
 }
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 80%;
+  }
+}
 
 body {
   font-family: "Cinzel", sans-serif;
@@ -49,17 +54,57 @@ a:visited {
   }
 }
 
+.heading-4 {
+  color: #b96eff;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.heading-5 {
+  font-size: inherit;
+}
+
+.btn {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  background-color: #283c50;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 2rem;
+  width: fit-content;
+  align-self: center;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #152e38;
+  box-shadow: 0.2rem 0.3rem 1rem rgba(255, 255, 255, 0.2);
+}
+.btn:focus {
+  box-shadow: 0.1rem 0.2rem 1rem rgba(255, 255, 255, 0.2);
+}
+
 .header .nav {
   display: flex;
   justify-content: center;
 }
+@media only screen and (max-width: 31.25em) {
+  .header .nav {
+    font-size: 50%;
+  }
+}
 .header .nav__link {
   padding: 1rem;
   font-size: 2rem;
+  text-transform: uppercase;
+  transition: all 0.3s;
 }
 .header .nav__link:hover, .header .nav__link:focus {
   background-color: #7b27ca;
-  transition: all 0.6s;
 }
 .header .nav .active {
   transform: scaleX(1.08);
@@ -89,21 +134,31 @@ a:visited {
   font-size: inherit;
   font-weight: bold;
   border: none;
+  transition: all 0.5s;
 }
 #app .search__field:focus {
   width: 80%;
   outline: none;
-  transition: all 0.6s;
 }
 #app .data {
   margin: 2rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
 }
 #app .data .heading-3 {
   text-align: center;
   margin-bottom: 1rem;
   border-bottom: solid 1px #fff;
 }
-#app .data .item a:hover {
+#app .data .item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+#app .data .item__name {
+  width: 12rem;
+}
+#app .data .item__name a:hover {
   font-style: italic;
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(255, 255, 255, 0.4);
 }

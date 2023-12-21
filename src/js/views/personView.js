@@ -8,8 +8,12 @@ class PersonView extends View {
   _generateMarkup() {
     return `
         <h3 class="heading-3">${this._data.name}</h3>
+        <h4 class="heading-4">House:</h4>
         <h5 class="heading-5">${this._data.house?.name || "Whitout house"}</h5>
-        ${this._data.quotes.map((quote) => `<p>${quote}</p>`).join("")}
+        <h4 class="heading-4">Quotations:</h4>
+        ${this._data.quotes
+          .map((quote) => `<p class="item">${quote}</p>`)
+          .join("")}
         <button id="updateQuotes" class="btn">Change quotations</button>
     `;
   }

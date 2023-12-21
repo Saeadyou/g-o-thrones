@@ -3,7 +3,6 @@ export default class View {
 
   render(data, render = true) {
     const searchField = document.querySelector(".search__field");
-    console.log(data);
     if (data.members || data.quotes) this._showSearchField(searchField);
     else this._hideSearchField(searchField);
 

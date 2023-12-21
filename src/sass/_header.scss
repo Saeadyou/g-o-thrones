@@ -3,14 +3,19 @@
     display: flex;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 50%;
+    }
+
     &__link {
       padding: 1rem;
       font-size: 2rem;
+      text-transform: uppercase;
+      transition: all 0.3s;
 
       &:hover,
       &:focus {
         background-color: $color-violet;
-        transition: all 0.6s;
       }
     }
     .active {

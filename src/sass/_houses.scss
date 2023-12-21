@@ -19,18 +19,19 @@
       font-size: inherit;
       font-weight: bold;
       border: none;
+      transition: all 0.5s;
 
       &:focus {
         width: 80%;
         outline: none;
-
-        transition: all 0.6s;
       }
     }
   }
 
   .data {
     margin: 2rem 1rem 3rem;
+    display: flex;
+    flex-direction: column;
 
     .heading-3 {
       text-align: center;
@@ -39,10 +40,17 @@
     }
 
     .item {
-      a {
-        &:hover {
-          font-style: italic;
-          text-shadow: 0.2rem 0.2rem 0.5rem rgba($color-light-1, 0.4);
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+
+      &__name {
+        width: 12rem;
+        a {
+          &:hover {
+            font-style: italic;
+            text-shadow: 0.2rem 0.2rem 0.5rem rgba($color-light-1, 0.4);
+          }
         }
       }
     }
