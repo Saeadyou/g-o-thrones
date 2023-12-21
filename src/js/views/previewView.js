@@ -5,30 +5,34 @@ class PreviewView extends View {
 
   _generateMarkup() {
     if (this._data.house || this._data.house === null)
+      // Persons route
       return `
-        <li class="item__name">
-          <a href="/persons/${this._data.slug}" data-link>${
+      <li class="item">
+      <a href="/persons/${this._data.slug}" data-link>${
         this._data.name
       } -----> ${this._data.house?.name || "❌whithout house❌"}</a>
-        </li>
-    `;
+      </li>
+      `;
 
     if (location.pathname === "/quotes")
+      // Quotes route
       return `
-        <li class="item__name">
-          ${this._data.sentence}
-        </li>
+      <li class="item">
+      ${this._data.sentence}
+      </li>
       `;
 
     if (location.pathname.includes("/houses/"))
+      // Members of a house route
       return `
-        <li class="item__name">
-          ${this._data.name}
-        </li>
+      <li class="item">
+      ${this._data.name}
+      </li>
       `;
 
+    // Houses route
     return `
-      <li class="item__name">
+      <li class="item">
         <a href="/houses/${this._data.slug}" data-link>${this._data.name}</a>
       </li>
     `;

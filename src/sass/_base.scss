@@ -2,8 +2,10 @@ $color-bg: #283c50;
 $color-bg-dark: #152e38;
 $color-bg-light: #303030;
 
-$color-light-1: #fff; // Light background
-$color-light-2: #bdddff; // Light lines
+$color-light-1: #fff;
+$color-light-2: #bdddff;
+
+$color-violet: #7b27ca;
 
 $gradient: linear-gradient(to right bottom, $color-bg, $color-bg-light);
 
@@ -15,6 +17,7 @@ $bp-smallest: 31.25em; // 500px
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 *,
@@ -26,7 +29,7 @@ $bp-smallest: 31.25em; // 500px
 
 html {
   box-sizing: border-box;
-    // font-size: 62.5%;
+  // font-size: 62.5%;
   font-size: 100%;
 
   // @media only screen and (max-width: $bp-medium) {

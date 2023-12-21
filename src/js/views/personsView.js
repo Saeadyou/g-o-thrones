@@ -9,9 +9,10 @@ class PersonsView extends View {
   _errorMessage = "There is no person!";
 
   _generateMarkup() {
-    return this._data
-      .map((person) => previewView.render(person, false))
-      .join("");
+    return `
+    <h3 class="heading-3">List of Persons</h3>
+    ${this._data.map((person) => previewView.render(person, false)).join("")}
+      `;
   }
 }
 

@@ -6,7 +6,10 @@ class HousesView extends View {
   _errorMessage = "There is no house!";
 
   _generateMarkup() {
-    return this._data.map((house) => previewView.render(house, false)).join("");
+    return `
+      <h3 class="heading-3">List of houses</h3>
+      ${this._data.map((house) => previewView.render(house, false)).join("")}
+      `;
   }
 }
 

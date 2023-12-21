@@ -7,14 +7,17 @@ class PersonView extends View {
 
   _generateMarkup() {
     return `
-        <h3>${this._data.name}</h3>
-        <h5>${this._data.house?.name || "Whitout house"}</h5>
+        <h3 class="heading-3">${this._data.name}</h3>
+        <h5 class="heading-5">${this._data.house?.name || "Whitout house"}</h5>
         ${this._data.quotes.map((quote) => `<p>${quote}</p>`).join("")}
-        <button id="updateQuotes">Change quotations</button>
+        <button id="updateQuotes" class="btn">Change quotations</button>
     `;
   }
 
   renderPerson(person, persons) {
+    // Hide search field
+    document.querySelector(".search__field").style.visibility = "hidden";
+
     this._data = person;
     this._allPersons = persons;
 

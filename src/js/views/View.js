@@ -2,6 +2,11 @@ export default class View {
   _data;
 
   render(data, render = true) {
+    const searchField = document.querySelector(".search__field");
+    console.log(data);
+    if (data.members || data.quotes) this._showSearchField(searchField);
+    else this._hideSearchField(searchField);
+
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError;
 
@@ -11,6 +16,14 @@ export default class View {
 
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
+  }
+
+  _hideSearchField(searchField) {
+    searchField.style.visibility = "hidden";
+  }
+
+  _showSearchField(searchField) {
+    searchField.style.visibility = "visible";
   }
 
   _clear() {

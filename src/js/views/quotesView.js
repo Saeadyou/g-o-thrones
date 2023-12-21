@@ -14,10 +14,11 @@ class QuotesView extends View {
   }
 
   _generateMarkup() {
-    return `${this._data
-      .map((quote) => previewView.render(quote, false))
-      .join("")}
-      <button id='updateButton'>Update quotations</button>`;
+    return `
+    <h3 class="heading-3">Some Quotations</h3>
+    ${this._data.map((quote) => previewView.render(quote, false)).join("")}
+      <button id='updateButton' class="btn">Update quotations</button>
+      `;
   }
 }
 
