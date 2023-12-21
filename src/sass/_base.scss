@@ -11,7 +11,6 @@ $color-violet-light: #b96eff;
 $gradient: linear-gradient(to right bottom, $color-bg, $color-bg-light);
 
 $bp-large: 78.15em; // 1250px
-// $bp-medium: 61.25em; // 980px
 $bp-small: 37.5em; // 600px
 $bp-smallest: 31.25em; // 500px
 
@@ -30,11 +29,14 @@ $bp-smallest: 31.25em; // 500px
 
 html {
   box-sizing: border-box;
-  // font-size: 62.5%;
   font-size: 100%;
 
   @media only screen and (max-width: $bp-small) {
     font-size: 80%;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 50%;
   }
 }
 
@@ -46,8 +48,15 @@ body {
   background-image: $gradient;
   background-size: cover;
   background-repeat: no-repeat;
-  // min-height: 100vh ;
   min-height: calc(100vh - 2 * 4vw);
+
+  background-image: url(../img/pic1.jpg);
+  background-size: 170%;
+  background-position: center;
+
+  @media only screen and (max-width: $bp-small) {
+    min-height: 100vh;
+  }
 }
 
 a:link,
@@ -56,6 +65,7 @@ a:visited {
 }
 
 .container {
+  position: relative;
   max-width: 80rem;
   min-height: 44rem;
   margin: 4vw auto;
@@ -79,30 +89,4 @@ a:visited {
 
 .heading-5 {
   font-size: inherit;
-}
-
-.btn {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  text-transform: uppercase;
-  background-color: $color-bg;
-  color: $color-light-1;
-  padding: 1rem;
-  border-radius: 8px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 2rem;
-  width: fit-content;
-  align-self: center;
-
-  &:hover {
-    background-color: $color-light-1;
-    color: $color-bg-dark;
-    box-shadow: 0.2rem 0.3rem 1rem rgba($color-light-1, 0.2);
-  }
-
-  &:focus {
-    box-shadow: 0.1rem 0.2rem 1rem rgba($color-light-1, 0.2);
-  }
 }

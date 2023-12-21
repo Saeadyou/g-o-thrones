@@ -120,6 +120,7 @@ class Router {
   }
 
   setActiveClass(el) {
+    // set active class for header's tabs
     if (el.matches("[data-route-link]")) {
       const oldActive = document.querySelector(".active");
       oldActive.classList.remove("active");

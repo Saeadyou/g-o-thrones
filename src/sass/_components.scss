@@ -1,0 +1,25 @@
+.btn {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  background-color: $color-bg;
+  color: $color-light-1;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 2rem;
+  width: fit-content;
+  align-self: center;
+
+  &:hover {
+    background-color: $color-light-1;
+    color: $color-bg-dark;
+    box-shadow: 0.2rem 0.3rem 0.5rem rgba($color-light-1, 0.3);
+  }
+
+  &:focus {
+    box-shadow: 0.1rem 0.2rem 0.5rem rgba($color-light-1, 0.2);
+  }
+}

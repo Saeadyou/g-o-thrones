@@ -3,10 +3,6 @@
     display: flex;
     justify-content: center;
 
-    @media only screen and (max-width: $bp-smallest) {
-      font-size: 50%;
-    }
-
     &__link {
       padding: 1rem;
       font-size: 2rem;

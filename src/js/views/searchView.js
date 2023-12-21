@@ -6,14 +6,9 @@ class SearchView extends View {
 
   getQuery() {
     const query = this._parentElement.querySelector(".search__field").value;
+    this._parentElement.querySelector(".search__field").value = "";
+    this._parentElement.querySelector(".search__field").blur();
     return query;
-  }
- 
-  addHandlerSearch(handler) {
-    this._parentElement.addEventListener("submit", function (e) {
-      e.preventDefault();
-      handler();
-    });
   }
 }
 

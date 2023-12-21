@@ -19,7 +19,7 @@
       font-size: inherit;
       font-weight: bold;
       border: none;
-      transition: all 0.5s;
+      transition: width 0.5s;
 
       &:focus {
         width: 80%;
@@ -37,6 +37,8 @@
       text-align: center;
       margin-bottom: 1rem;
       border-bottom: solid 1px $color-light-1;
+      background-color: rgba($color-bg-light, 0.5);
+      font-style: italic;
     }
 
     .item {
@@ -50,6 +52,7 @@
           &:hover {
             font-style: italic;
             text-shadow: 0.2rem 0.2rem 0.5rem rgba($color-light-1, 0.4);
+            color: $color-violet-light;
           }
         }
       }
