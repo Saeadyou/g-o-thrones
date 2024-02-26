@@ -12,7 +12,7 @@ class PreviewView extends View {
           <a href="/persons/${this._data.slug}" data-link>${this._data.name}</a>
         </span>
         <span class='item__house'>
-          ${this._data.house?.name || "❌whithout house❌"}
+          ${this._data.house?.name || "❌without house❌"}
         </span>
       </li>
       `;
