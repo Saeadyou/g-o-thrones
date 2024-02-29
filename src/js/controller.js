@@ -106,6 +106,7 @@ class Router {
 
   router_init() {
     let view = this._routes[location.pathname];
+    document.querySelector(".search__field").value = "";
 
     if (view) {
       view.render();
@@ -152,7 +153,7 @@ class Router {
 const routing = new Router();
 
 routing.navigate();
-document.querySelector(".search").addEventListener("submit", (e) => {
+document.querySelector(".search__field").addEventListener("input", (e) => {
   e.preventDefault();
   controlSearchResults();
 });
