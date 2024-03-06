@@ -11,7 +11,8 @@ $color-violet-light: #b96eff;
 $gradient: linear-gradient(to right bottom, $color-bg, $color-bg-light);
 
 $bp-large: 78.15em; // 1250px
-$bp-small: 37.5em; // 600px
+// $bp-small: 37.5em; // 600px
+$bp-small: 48em; // 768px
 $bp-smallest: 31.25em; // 500px
 
 * {
@@ -36,7 +37,7 @@ html {
   }
 
   @media only screen and (max-width: $bp-smallest) {
-    font-size: 50%;
+    font-size: 60%;
   }
 }
 
@@ -47,11 +48,12 @@ body {
   color: $color-light-1;
   background-image: $gradient;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 2 * 4vw);
+  min-height: 100vh;
 
   background-image: url(../img/pic1.jpg);
-  background-size: 170%;
+  background-size: cover;
   background-position: center;
+  overflow: hidden;
 
   @media only screen and (max-width: $bp-small) {
     min-height: 100vh;
@@ -67,16 +69,20 @@ a:visited {
   position: relative;
   max-width: 80rem;
   min-height: 44rem;
-  margin: 4vw auto;
+  margin: 4vh auto;
   background-color: $color-bg-dark;
   border-radius: 9px;
   overflow: hidden;
   box-shadow: 0 1rem 4rem 0.4rem rgba($color-light-1, 0.2);
 
-  @media only screen and (max-width: $bp-large) {
+  @media only screen and (max-width: $bp-small) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    height: 100dvh;
   }
 }
 

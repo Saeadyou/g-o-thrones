@@ -15,14 +15,14 @@ html {
   box-sizing: border-box;
   font-size: 100%;
 }
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 48em) {
   html {
     font-size: 80%;
   }
 }
 @media only screen and (max-width: 31.25em) {
   html {
-    font-size: 50%;
+    font-size: 60%;
   }
 }
 
@@ -33,12 +33,13 @@ body {
   color: #fff;
   background-image: linear-gradient(to right bottom, #283c50, #303030);
   background-repeat: no-repeat;
-  min-height: calc(100vh - 8vw);
+  min-height: 100vh;
   background-image: url(../img/pic1.jpg);
-  background-size: 170%;
+  background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 48em) {
   body {
     min-height: 100vh;
   }
@@ -53,17 +54,22 @@ a:visited {
   position: relative;
   max-width: 80rem;
   min-height: 44rem;
-  margin: 4vw auto;
+  margin: 4vh auto;
   background-color: #152e38;
   border-radius: 9px;
   overflow: hidden;
   box-shadow: 0 1rem 4rem 0.4rem rgba(255, 255, 255, 0.2);
 }
-@media only screen and (max-width: 78.15em) {
+@media only screen and (max-width: 48em) {
   .container {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+}
+@media only screen and (max-width: 31.25em) {
+  .container {
+    height: 100dvh;
   }
 }
 
