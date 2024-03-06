@@ -32,7 +32,6 @@ body {
   line-height: 1.6;
   color: #fff;
   background-image: linear-gradient(to right bottom, #283c50, #303030);
-  background-size: cover;
   background-repeat: no-repeat;
   min-height: calc(100vh - 8vw);
   background-image: url(../img/pic1.jpg);
