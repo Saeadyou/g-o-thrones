@@ -75,8 +75,8 @@ const controlSearchResults = function () {
       if (!query) housesView.render(model.state.houses);
 
       // Load search result
-      const houses = model.state.houses.filter(
-        (house) => house.name.toUpperCase().indexOf(query) > -1
+      const houses = model.state.houses.filter((house) =>
+        house.name.toUpperCase().includes(query)
       );
 
       // Render results
@@ -85,15 +85,16 @@ const controlSearchResults = function () {
       if (!query) personsView.render(model.state.persons);
 
       // Load search result
-      const persons = model.state.persons.filter(
-        (person) => person.name.toUpperCase().indexOf(query) > -1
+      const persons = model.state.persons.filter((person) =>
+        person.name.toUpperCase().includes(query)
       );
 
       // Render results
       personsView.render(persons);
     }
-  } catch (err) {
-    housesView.renderError();
+  } catch {
+    if (location.pathname === "/") housesView.renderError();
+    else personsView.renderError();
   }
 };
 

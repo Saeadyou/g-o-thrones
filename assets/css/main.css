@@ -37,7 +37,6 @@ body {
   background-image: url(../img/pic1.jpg);
   background-size: cover;
   background-position: center;
-  overflow: hidden;
 }
 @media only screen and (max-width: 48em) {
   body {
