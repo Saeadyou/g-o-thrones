@@ -78,9 +78,6 @@ a:visited {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
-  }
-
-  @media only screen and (max-width: $bp-smallest) {
     height: 100dvh;
   }
 }
